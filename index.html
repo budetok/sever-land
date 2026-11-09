@@ -72,15 +72,22 @@ nav a{font-size:13px}
  .header-contacts{gap:6px}
 }
 
-/* Brand assets are uploaded separately, using original 480×280 PNG files.
-   We never enlarge them and fit by intrinsic proportions. */
+/* Harmonized logo scale: visual benchmark is the EKF wordmark.
+   Original raster files are preserved; the browser only scales them down. */
 .brand-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.brand-tile{height:190px;min-width:0;padding:18px 20px;overflow:hidden}
-.brand-image{display:block;width:auto;height:auto;max-width:100%;max-height:148px;object-fit:contain;image-rendering:auto}
+.brand-tile{height:190px;min-width:0;padding:30px 32px;overflow:hidden}
+.brand-image{display:block;width:min(72%,var(--logo-width,190px));height:auto;max-height:105px;object-fit:contain;image-rendering:auto;flex:0 0 auto}
+.brand-image--grundfos{--logo-width:155px}
+.brand-image--grohe{--logo-width:177px}
+.brand-image--wilo{--logo-width:183px}
+.brand-image--broen{--logo-width:183px}
+.brand-image--fancy{--logo-width:195px}
+.brand-image--siemens{--logo-width:195px}
+.brand-image--ekf{--logo-width:190px}
 .brand-fallback{font-size:clamp(18px,2vw,29px);font-weight:800;letter-spacing:-.035em;color:#244e76;text-align:center}
 .brand-note{max-width:980px}
-@media(max-width:1000px){.brand-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.brand-tile{height:170px}.brand-image{max-height:135px}}
-@media(max-width:600px){.brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.brand-tile{height:135px;padding:12px}.brand-image{max-height:108px}.brand-fallback{font-size:19px}}
+@media(max-width:1000px){.brand-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.brand-tile{height:175px;padding:25px}.brand-image{width:min(74%,var(--logo-width,190px));max-height:100px}}
+@media(max-width:600px){.brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.brand-tile{height:142px;padding:20px 18px}.brand-image{width:min(78%,var(--logo-width,190px));max-height:82px}.brand-fallback{font-size:19px}}
 
 </style>
 </head>
