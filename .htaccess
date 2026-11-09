@@ -1,28 +1,16 @@
-# Temporary single-page website for sever2.ru
-# Requires Apache with mod_rewrite and AllowOverride enabled.
+# Temporary sever2.ru website on REG.RU
+# Diagnostic safe mode: no external redirects here.
+# Any redirect loop that persists must be inspected at the hosting,
+# domain, SSL or upstream-proxy configuration.
 Options -MultiViews
 DirectoryIndex index.html
-
 ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-
-# Temporary REG.RU hosting: canonical hostname only.
-# HTTPS redirection is deliberately not forced here to avoid
-# loops when TLS is handled by the hosting front end.
-RewriteCond %{HTTP_HOST} ^www\.sever2\.ru$ [NC]
-RewriteRule ^(.*)$ https://sever2.ru/$1 [R=301,L,NE]
-
-# Home page (and its explicit index filename).
 RewriteRule ^$ - [L]
 RewriteRule ^index\.html$ - [L,NC]
-
-# Serve the branded error page and static assets without rewriting.
 RewriteRule ^404\.html$ - [L,NC]
 RewriteRule ^assets/ - [L,NC]
-
-# All previous catalog, product and informational paths return actual 404.
-# Apache serves 404.html through ErrorDocument, keeping the requested URL.
 RewriteRule ^ - [R=404,L]
 </IfModule>
