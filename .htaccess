@@ -8,7 +8,8 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-# Canonical host: www.sever2.ru -> sever2.ru (also for legacy URLs).
+# Canonical HTTPS URL in one redirect: HTTP -> HTTPS and www -> non-www.
+RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.sever2\.ru$ [NC]
 RewriteRule ^(.*)$ https://sever2.ru/$1 [R=301,L,NE]
 
