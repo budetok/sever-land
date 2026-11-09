@@ -33,11 +33,49 @@ section{padding:108px 0}.section-head{display:flex;justify-content:space-between
 @media(max-width:900px){header{top:10px;left:10px;right:10px}.top{min-height:70px}.mobile-toggle{display:inline-flex;align-items:center;margin-left:auto}.header-contacts{display:none}nav{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:white;padding:18px;flex-direction:column;align-items:stretch;border:1px solid var(--line);box-shadow:0 12px 25px #162b381d;border-radius:12px}nav.open{display:flex}nav a{padding:8px;font-size:15px}.hero{padding:165px 0 75px;min-height:700px}.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.about-layout{grid-template-columns:1fr;gap:25px}.about-content{max-width:760px}}
 @media(max-width:600px){.container{padding:0 20px}.hero{padding:150px 0 65px;min-height:0}.hero:before{background-image:linear-gradient(90deg,#f6fafbea,#f6fafbdc),url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1100&q=75")}.hero h1{font-size:42px}.hero-lead{font-size:17px}.notice{margin-top:45px;padding:18px}section{padding:72px 0}.section-head{display:block;margin-bottom:30px}.section-description{margin-top:18px}.catalog-grid{grid-template-columns:1fr}.catalog-card{padding:25px}.brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.brand-tile{height:120px;padding:12px}.wordmark{font-size:22px!important}.brand-note{font-size:16px}.stats{gap:10px}.stat{padding:20px 16px}.stat strong{font-size:32px}.map{height:620px}.map-overlay{top:30px;left:20px;padding:26px;width:calc(100% - 40px)}.map-overlay h2{font-size:32px}footer .container{display:block}footer .container>*{display:block;margin:5px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Updated corporate SVG header */
+.top{min-height:132px;gap:24px;padding:12px 26px}
+.brand{line-height:0}
+.brand img{height:100px;width:auto;max-width:none;display:block}
+nav{gap:18px;margin-left:auto}
+nav a{font-size:13px}
+.header-contacts{display:flex;flex-direction:row;align-items:center;gap:24px;margin-left:auto;white-space:nowrap}
+.header-contacts a,.header-contacts a:last-child{font-size:17px;font-weight:800;line-height:1.4}
+.hero{padding-top:242px}
+@media(max-width:1300px){
+ .top{gap:18px;padding:10px 20px}
+ nav{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;padding:18px;flex-direction:column;align-items:stretch;border:1px solid var(--line);box-shadow:0 12px 25px #162b381d;border-radius:12px;margin:0}
+ nav.open{display:flex}
+ nav a{padding:8px;font-size:15px}
+ .mobile-toggle{display:inline-flex;align-items:center;order:3;margin-left:0}
+ .header-contacts{display:flex;order:2;margin-left:auto;gap:18px}
+}
+@media(max-width:900px){
+ .top{min-height:124px}
+ .header-contacts{display:flex}
+ .mobile-toggle{display:inline-flex}
+ .hero{padding-top:222px}
+}
+@media(max-width:720px){
+ header{top:8px;left:8px;right:8px}
+ .top{display:grid;grid-template-columns:1fr auto;grid-template-areas:"logo toggle" "contacts contacts";row-gap:6px;column-gap:12px;min-height:0;padding:10px 14px 13px}
+ .brand{grid-area:logo}
+ .brand img{height:100px}
+ .mobile-toggle{grid-area:toggle;order:initial;justify-self:end}
+ .header-contacts{grid-area:contacts;order:initial;display:flex;justify-content:space-between;margin:0;gap:10px;min-width:0;width:100%}
+ .header-contacts a,.header-contacts a:last-child{font-size:clamp(11px,3.1vw,17px)}
+ .hero{padding-top:245px}
+}
+@media(max-width:420px){
+ .brand img{height:100px}
+ .header-contacts{gap:6px}
+}
 </style>
 </head>
 <body>
 <header><div class="top">
-<a class="brand" href="#home" aria-label="Группа компаний Север — на главную"><span class="brand-symbol" aria-hidden="true">С</span><span><span class="brand-name">СЕВЕР</span><span class="brand-sub">Группа компаний</span></span></a>
+<a class="brand" href="#home" aria-label="Группа компаний Север — на главную"><img src="assets/severlogo.svg" alt="Группа компаний «Север»" width="238" height="100"></a>
 <button class="mobile-toggle" type="button" aria-label="Открыть меню" aria-controls="main-nav" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 <nav id="main-nav" aria-label="Основное меню"><a href="#home">Главная</a><a href="#products">Продукция</a><a href="#brands">Бренды</a><a href="#about">О компании</a><a href="#contacts">Контакты</a></nav>
 <div class="header-contacts"><a href="tel:+74959819650">+7 (495) 981-96-50</a><a href="mailto:zakaz@sever2.ru">zakaz@sever2.ru</a></div>
