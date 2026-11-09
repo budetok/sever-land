@@ -1,0 +1,47 @@
+name: Package Sever landing for hosting
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - 'assets/**'
+      - '.github/workflows/package-hosting.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sever-hosting-package
+  cancel-in-progress: true
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Build hosting archive
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          rm -f dist/sever-land-hosting.zip
+          # Store originals without recompressing image assets.
+          zip -q -0 -r dist/sever-land-hosting.zip index.html assets/ -x 'assets/brands/README.md'
+          unzip -t dist/sever-land-hosting.zip
+          for file in index.html assets/hero.webp assets/severlogo.svg assets/brands/fancy.webp; do
+            unzip -Z -1 dist/sever-land-hosting.zip | grep -Fx "$file"
+          done
+      - name: Commit ready-to-upload archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f dist/sever-land-hosting.zip
+          if git diff --cached --quiet; then
+            echo "Hosting archive is already current"
+          else
+            git commit -m "Update self-contained hosting ZIP"
+            git push
+          fi
