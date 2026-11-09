@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - index.html
+      - 404.html
+      - .htaccess
       - 'assets/**'
       - '.github/workflows/package-hosting.yml'
   workflow_dispatch:
@@ -29,9 +31,9 @@ jobs:
           mkdir -p dist
           rm -f dist/sever-land-hosting.zip
           # Store originals without recompressing image assets.
-          zip -q -0 -r dist/sever-land-hosting.zip index.html assets/ -x 'assets/brands/README.md'
+          zip -q -0 -r dist/sever-land-hosting.zip index.html 404.html .htaccess assets/ -x 'assets/brands/README.md'
           unzip -t dist/sever-land-hosting.zip
-          for file in index.html assets/hero.webp assets/severlogo.svg assets/brands/fancy.webp; do
+          for file in index.html 404.html .htaccess assets/hero.webp assets/severlogo.svg assets/brands/fancy.webp; do
             unzip -Z -1 dist/sever-land-hosting.zip | grep -Fx "$file"
           done
       - name: Commit ready-to-upload archive
