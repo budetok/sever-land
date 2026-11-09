@@ -8,14 +8,10 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-# Canonical domain. Proxy-safe HTTPS redirect:
-# A TLS-terminating proxy can set HTTPS=off in Apache even for HTTPS visitors.
+# Temporary REG.RU hosting: canonical hostname only.
+# HTTPS redirection is deliberately not forced here to avoid
+# loops when TLS is handled by the hosting front end.
 RewriteCond %{HTTP_HOST} ^www\.sever2\.ru$ [NC]
-RewriteRule ^(.*)$ https://sever2.ru/$1 [R=301,L,NE]
-
-# Redirect genuine HTTP requests only, respecting X-Forwarded-Proto.
-RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
 RewriteRule ^(.*)$ https://sever2.ru/$1 [R=301,L,NE]
 
 # Home page (and its explicit index filename).
