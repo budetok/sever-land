@@ -71,6 +71,17 @@ nav a{font-size:13px}
  .brand img{height:80px}
  .header-contacts{gap:6px}
 }
+
+/* Brand assets are uploaded separately, using original 480×280 PNG files.
+   We never enlarge them and fit by intrinsic proportions. */
+.brand-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.brand-tile{height:190px;min-width:0;padding:18px 20px;overflow:hidden}
+.brand-image{display:block;width:auto;height:auto;max-width:100%;max-height:148px;object-fit:contain;image-rendering:auto}
+.brand-fallback{font-size:clamp(18px,2vw,29px);font-weight:800;letter-spacing:-.035em;color:#244e76;text-align:center}
+.brand-note{max-width:980px}
+@media(max-width:1000px){.brand-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.brand-tile{height:170px}.brand-image{max-height:135px}}
+@media(max-width:600px){.brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.brand-tile{height:135px;padding:12px}.brand-image{max-height:108px}.brand-fallback{font-size:19px}}
+
 </style>
 </head>
 <body>
@@ -104,9 +115,17 @@ nav a{font-size:13px}
 <section id="brands" class="brands"><div class="container">
 <div class="section-head"><div><p class="section-kicker">Производители</p><h2>Бренды</h2></div><p class="section-description">Работаем с продукцией известных производителей инженерных систем и оборудования.</p></div>
 <div class="brand-grid" aria-label="Бренды поставляемой продукции">
-<div class="brand-tile"><span class="wordmark red">Danfoss</span></div><div class="brand-tile"><span class="wordmark blue">РИДАН</span></div><div class="brand-tile"><span class="wordmark blue">GRUNDFOS</span></div><div class="brand-tile"><span class="wordmark green">Wilo</span></div>
-<div class="brand-tile"><span class="wordmark blue">SIEMENS</span></div><div class="brand-tile"><span class="wordmark black">FANCY</span></div><div class="brand-tile"><span class="wordmark blue">BROEN</span></div><div class="brand-tile"><span class="wordmark black">GROHE</span></div>
-<div class="brand-tile"><span class="wordmark red">EKF</span></div><div class="brand-tile"><span class="wordmark blue">Buderus</span></div><div class="brand-tile"><span class="wordmark black">K-FLEX</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--danfoss" src="assets/brands/danfoss.png" alt="Danfoss" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Danfoss</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--ridan" src="assets/brands/ridan.png" alt="Ридан" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Ридан</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--grundfos" src="assets/brands/grundfos.png" alt="Grundfos" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Grundfos</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--wilo" src="assets/brands/wilo.png" alt="Wilo" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Wilo</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--siemens" src="assets/brands/siemens.png" alt="Siemens" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Siemens</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--fancy" src="assets/brands/fancy.png" alt="Fancy" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Fancy</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--broen" src="assets/brands/broen.png" alt="Broen" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Broen</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--grohe" src="assets/brands/grohe.png" alt="Grohe" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Grohe</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--ekf" src="assets/brands/ekf.png" alt="EKF" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">EKF</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--buderus" src="assets/brands/buderus.png" alt="Buderus" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">Buderus</span></div>
+  <div class="brand-tile"><img class="brand-image brand-image--k-flex" src="assets/brands/k-flex.png" alt="K-FLEX" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="brand-fallback" style="display:none">K-FLEX</span></div>
 </div>
 <p class="brand-note">Мы поставляем продукцию этих и других брендов из наличия и на заказ. Отправьте нам запрос на почту <a href="mailto:zakaz@sever2.ru">zakaz@sever2.ru</a>, мы предложим оптимальный вариант решения вашей задачи.</p>
 </div></section>
